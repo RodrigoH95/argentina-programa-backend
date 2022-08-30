@@ -4,6 +4,7 @@ import com.portfoliofullstack.miportfolio.Models.Educacion;
 import com.portfoliofullstack.miportfolio.Service.EducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "https://rodrigo-heredia.web.app/")
+@CrossOrigin(origins = "https://rodrigo-heredia.firebaseapp.com/")
 public class EducacionController {
 
     @Autowired
