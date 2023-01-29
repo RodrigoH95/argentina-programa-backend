@@ -1,8 +1,12 @@
-FROM openjdk:10-jre-slim
+FROM openjdk:18-jdk-slim
 
 WORKDIR /app
-COPY ./target/miportfolio-0.0.1-SNAPSHOT.jar /app
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "miportfolio-0.0.1-SNAPSHOT.jar"]
+CMD ["./mvnw", "spring-boot:run"]
