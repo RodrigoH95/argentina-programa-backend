@@ -1,14 +1,4 @@
-FROM openjdk:18-jdk-slim
-
-WORKDIR /app
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-
-RUN chmod +x mvnw
-RUN ./mvnw install
-
-COPY src ./src
-
+FROM maven:3.8.7-eclipse-temurin-17
+COPY target/miportfolio-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-ENTRYPOINT ["./mvnw", "spring-boot:run"]
+CMD ["java","-jar","app.jar"]
